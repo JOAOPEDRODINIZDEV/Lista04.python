@@ -77,4 +77,4 @@ while True:
     else:
         print("Opção inválida. Digite um número válido.")
 
-    print()  # Adiciona uma linha em branco para melhorar a legibilidade
+    print()  
