@@ -40,15 +40,39 @@ class Queue:
             raise IndexError("A fila está vazia")
         return self.head.value
 
+
 fila = Queue()
 
+opcao = 0
 
-fila.enqueue(10)
-fila.enqueue(20)
-fila.enqueue(30)
+while opcao != 4:
+    print("----- MENU -----")
+    print("1. Enfileirar")
+    print("2. Desenfileirar")
+    print("3. Elemento da frente")
+    print("4. Sair")
+    opcao = int(input("Digite a opção desejada: "))
 
-
-print("Elemento da frente:", fila.get_front())
+    if opcao == 1:
+        valor = int(input("Digite o valor a ser enfileirado: "))
+        fila.enqueue(valor)
+        print("Valor enfileirado com sucesso!")
+    elif opcao == 2:
+        if fila.is_empty():
+            print("A fila está vazia")
+        else:
+            valor = fila.dequeue()
+            print("Valor desenfileirado:", valor)
+    elif opcao == 3:
+        try:
+            valor = fila.get_front()
+            print("Elemento da frente:", valor)
+        except IndexError as e:
+            print(str(e))
+    elif opcao == 4:
+        print("Saindo...")
+    else:
+        print("Opção inválida! Digite uma opção válida.")
 
 print(fila.dequeue())  
 print(fila.dequeue())
